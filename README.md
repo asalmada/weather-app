@@ -1,0 +1,1 @@
+# WeatherApp by André Scheibel de Almada
