@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class CityView extends Component {
+  
   render () {
     return (
       <div className='text-center'>

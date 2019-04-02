@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import Cities from './reducer_cities';
-import RequestsList from './reducer_requests_list';
+import WeatherList from './reducer_weather_list';
+import UserView from './reducer_user_view';
 
 const rootReducer = combineReducers({
   cities: Cities,
-  requestsList: RequestsList
+  weatherList: WeatherList,
+  userView: UserView
 });
 
 export default rootReducer;

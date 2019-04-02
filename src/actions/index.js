@@ -4,3 +4,10 @@ export function cityLoaded(city) {
     payload: city
   });
 }
+
+export function userViewChanged(view) {
+  return({
+    type: 'VIEW_CHANGED',
+    payload: view
+  });
+}

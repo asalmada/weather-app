@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { cityLoaded } from './../actions/index';
+import { cityLoaded, userViewChanged } from './../actions/index';
 import { bindActionCreators } from 'redux';
-
-import CityView from './../components/city_view';
 
 class Navbar extends Component {
 
@@ -16,6 +14,7 @@ class Navbar extends Component {
     .then(response => { 
       response.json().then(data => {
         this.props.cityLoaded(data);
+        this.props.userViewChanged('single-city');
       });
     })
     .catch(err => { 
@@ -59,9 +58,6 @@ class Navbar extends Component {
             </ul>
           </div>
         </nav>
-
-        {(!this.props.requestsList) && <center><p>Please choose one of the options above!</p></center>}
-        {(this.props.requestsList) && <CityView city={this.props.requestsList[this.props.requestsList.length -1]}/>}
       </div>
     );
   }
@@ -70,13 +66,13 @@ class Navbar extends Component {
 function mapStateToProps(state) {
   return ({
     cities: state.cities, /* Gets the list of cities available */
-    requestsList: state.requestsList /* Gets the list of cities searched */
   });
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    cityLoaded: cityLoaded
+    cityLoaded: cityLoaded,
+    userViewChanged: userViewChanged
   }, dispatch);
 }
 
