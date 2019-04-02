@@ -5,3 +5,15 @@
 #main-div-view {
   margin-top: 2%;
 }
+
+/* Better view for smartphones */
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 0;
+  }
+
+  #main-div-view {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+}
