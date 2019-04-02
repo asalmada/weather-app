@@ -12,7 +12,8 @@ O projeto foi iniciado através de um starter chamado [ReduxSimpleStarter](https
 do autor Stephen Grinder.
 
 ### Live Demo
-É possível ver a aplicação através deste [link](https://asalmada-weather-app.herokuapp.com/).
+É possível ver a aplicação através deste [link](https://asalmada-weather-app.herokuapp.com/). Peço que ignore o primeiro acesso
+pois por utilizar uma máquina gratuita no Heroku, esta mesma entra em repouso após 30 minutos de inatividade.
 
 ### Iniciando o programa
 Com o node.js e o npm instalados em sua máquina, por favor, instale as dependências e inicie a aplicação.
