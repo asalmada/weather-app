@@ -2,20 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { cityLoaded, userViewChanged } from './../actions/index';
 import { bindActionCreators } from 'redux';
+import axios from 'axios';
 
 class Navbar extends Component {
 
   fetchWeatherInfo(city) {
     let url = `https://fcc-weather-api.glitch.me/api/current?lon=${city.longitude}&lat=${city.latitude}`;
 
-    fetch(url, {
-      method: 'get'
-    })
+    axios.get(url)
     .then(response => { 
-      response.json().then(data => {
-        this.props.cityLoaded(data);
-        this.props.userViewChanged('single-city');
-      });
+      this.props.cityLoaded(response.data);
+      this.props.userViewChanged('single-city');
     })
     .catch(err => { 
       console.log('Whoops! There was an error trying to fetch city info. Try again later'); 
