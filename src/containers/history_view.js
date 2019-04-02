@@ -4,12 +4,11 @@ import { connect } from 'react-redux';
 class HistoryView extends Component {
 
   renderTemperatures() {
-
     return (
-      
       this.props.cities.map((city, index) => {
 
-        let city_weathers = this.props.weatherList.filter(e => { return e.sys.id === city.id_api}); /* Gets max and min temps in all weather history for each city */
+        /* Gets max and min temps in all weather history for each city */
+        let city_weathers = this.props.weatherList.filter(e => { return e.name === city.name_in_api});
         let max_value, min_value = undefined;
         
         city_weathers.map(data => {
@@ -25,10 +24,10 @@ class HistoryView extends Component {
 
         return(
           <div className='row' key={index}>
-            <div className='col-2 text-center'>
+            <div className='col-3 text-left'>
               <p>City: {city.name}</p>
             </div>
-            <div className='col-10 text-center'>
+            <div className='col-9 text-right'>
               {max_value && <p>Min: {min_value}º/C/Max: {max_value}ºC</p>}
               {!max_value && <p>Still not searched...</p>}
             </div>

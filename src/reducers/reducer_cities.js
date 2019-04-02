@@ -4,19 +4,19 @@ export default function () {
   return [
     {
       name: 'São Carlos',
-      id_api: 8462,
+      name_in_api: 'Sao Carlos', /* used to compare with requests */
       longitude: -47.8911,
       latitude: -22.0154,
     },
     {
       name: 'Florianópolis',
-      id_api: 8360,
+      name_in_api: 'Florianopolis', /* used to compare with requests */
       longitude: -48.558540,
       latitude: -27.593500
     },
     {
       name: 'Brighton and Hove',
-      id_api: 1413,
+      name_in_api: 'Hove', /* used to compare with requests */
       longitude: -0.168749,
       latitude: 50.827930
     }

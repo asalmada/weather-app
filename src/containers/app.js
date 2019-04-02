@@ -12,11 +12,10 @@ class App extends Component {
     return (
       <div>
         <Navbar/>
-        <div className='text-center'>
+        <div className='text-center' id='main-div-view'>
           {(!this.props.userView) && <p>Please choose one of the options above!</p>}
 
           {(this.props.userView==='single-city') && <CityView city={this.props.weatherList[0]}/>}
-
           {(this.props.userView==='single-city') && <button
             type='button'
             className='btn btn-dark'
@@ -26,7 +25,6 @@ class App extends Component {
           </button>}
 
           {(this.props.userView==='history-view') && <HistoryView />}
-
           {(this.props.userView==='history-view') && <button
             type='button'
             className='btn btn-dark'
@@ -49,7 +47,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    userViewChanged: userViewChanged
+    userViewChanged
   }, dispatch);
 }
 

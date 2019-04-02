@@ -1,31 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { cityLoaded, userViewChanged } from './../actions/index';
+import { fetchWeatherInfo } from './../actions/index';
 import { bindActionCreators } from 'redux';
-import axios from 'axios';
 
 class Navbar extends Component {
-
-  fetchWeatherInfo(city) {
-    let url = `https://fcc-weather-api.glitch.me/api/current?lon=${city.longitude}&lat=${city.latitude}`;
-
-    axios.get(url)
-    .then(response => { 
-      this.props.cityLoaded(response.data);
-      this.props.userViewChanged('single-city');
-    })
-    .catch(err => { 
-      console.log('Whoops! There was an error trying to fetch city info. Try again later'); 
-      console.error(err);
-    });
-  }
 
   renderCityList() {
     return (
       this.props.cities.map((city, index) => {
         return (
           <li className='nav-item' key={index}>
-            <a className='nav-link' onClick={() => { this.fetchWeatherInfo(city); }} >{city.name}</a>
+            <a className='nav-link' onClick={() => { this.props.fetchWeatherInfo(city); }}>
+              {city.name}
+            </a>
           </li>
         );
       })
@@ -36,7 +23,7 @@ class Navbar extends Component {
     return (
       <div>
         <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
-          <a className='navbar-brand' href='#'>Weather App</a>
+          <a className='navbar-brand'>Weather App</a>
           <button
             className='navbar-toggler'
             type='button'
@@ -68,8 +55,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    cityLoaded: cityLoaded,
-    userViewChanged: userViewChanged
+    fetchWeatherInfo
   }, dispatch);
 }
 
