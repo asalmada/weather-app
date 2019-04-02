@@ -3,31 +3,33 @@
   "version": "1.0.0",
   "description": "Simple app that shows 3 different cities weather",
   "main": "index.js",
-  "repository": "",
+  "repository": "git@github.com:asalmada/weather-app.git",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "prod": "NODE_ENV=production node server.js",
+    "postinstall": "webpack -p",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
-    "test:watch": "npm run test -- --watch",
-    "build": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors"
+    "test:watch": "npm run test -- --watch"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
-    "webpack": "^1.12.9",
+    "babel-preset-stage-1": "^6.1.18",
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "babel-preset-stage-1": "^6.1.18",
+    "babel-core": "^6.2.1",
+    "express": "^4.16.4",
     "lodash": "^3.10.1",
     "react": "16.3.2",
     "react-dom": "16.3.2",
     "react-redux": "5.0.7",
     "redux": "4.0.0",
-    "redux-promise": "^0.6.0"
+    "redux-promise": "^0.6.0",
+    "webpack": "^1.12.9"
   }
 }
